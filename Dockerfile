@@ -1,10 +1,8 @@
-FROM alpine:3.8
+FROM python:3.9-buster
 
-RUN apk add --no-cache python3 python3-dev gcc musl-dev libffi-dev make openssl-dev git openssh-client && \
-    python3 -m ensurepip && \
-    pip3 install --upgrade pip setuptools && \
-    pip3 install ansible yamllint pywinrm && \
-    pip3 install cs && \
+RUN pip3 install --upgrade pip setuptools && \
+    pip3 install ansible yamllint && \
+    pip3 install cs hcloud && \
     mkdir -p /root/.ssh && \
     echo "StrictHostKeyChecking no" > /root/.ssh/config && \
     mkdir -p /root/.config/yamllint
