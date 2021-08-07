@@ -1,7 +1,7 @@
 FROM python:3.9-buster
 
 RUN pip3 install --upgrade pip setuptools && \
-    pip3 install ansible yamllint && \
+    pip3 install ansible~=4.0 yamllint molecule && \
     pip3 install cs hcloud && \
     mkdir -p /root/.ssh && \
     echo "StrictHostKeyChecking no" > /root/.ssh/config && \
